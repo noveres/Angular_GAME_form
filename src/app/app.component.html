@@ -1,0 +1,54 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- 側邊導航欄 -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="'navigation'"
+      [mode]="'side'"
+      [opened]="true">
+    <mat-toolbar class="sidenav-header">
+      <img src="assets/logo.png" alt="Logo" class="logo">
+      <span>管理系統</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span>儀表板</span>
+      </a>
+      <a mat-list-item routerLink="/users" routerLinkActive="active">
+        <mat-icon>people</mat-icon>
+        <span>用戶管理</span>
+      </a>
+      <a mat-list-item routerLink="/settings" routerLinkActive="active">
+        <mat-icon>settings</mat-icon>
+        <span>系統設置</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- 主要內容區域 -->
+  <mat-sidenav-content>
+    <!-- 頂部工具列 -->
+    <mat-toolbar color="primary" class="top-toolbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>表單流程管理系統</span>
+      <span class="toolbar-spacer"></span>
+      <button mat-icon-button class="notification-btn" [matBadge]="3" matBadgeColor="warn">
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-button class="user-btn">
+        <mat-icon>account_circle</mat-icon>
+        <span>管理員</span>
+      </button>
+    </mat-toolbar>
+    
+    <!-- 路由出口 -->
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
